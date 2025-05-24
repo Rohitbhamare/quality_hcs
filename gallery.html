@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Quality Healthcare Services | Healthcare Services in Action</title>
+    <meta name="description"
+        content="View our gallery showcasing Quality Healthcare Services in action - hospital support, nursing care, patient care, and healthcare excellence in Nashik, Maharashtra.">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Lightbox CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+
+    <style>
+        :root {
+            --primary-color: #1d3e4c;
+            --primary-dark: #152c36;
+            --primary-light: #2a5a6e;
+            --secondary-color: #c5a059;
+            --secondary-light: #d9bc85;
+            --secondary-dark: #a88440;
+            --accent-color: #3a7ca5;
+            --text-color: #2b2d42;
+            --text-light: #6c757d;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --border-radius: 10px;
+            --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --box-shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.2);
+            --transition: all 0.3s ease;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 50%, var(--accent-color) 100%);
+        }
+
+        html {
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100vw;
+        }
+
+        .navbar-sticky {
+            backdrop-filter: blur(15px);
+            background-color: rgba(248, 249, 250, 0.95);
+            box-shadow: var(--box-shadow);
+        }
+
+        .gallery-item {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .gallery-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent, rgba(197, 160, 89, 0.1), transparent);
+            opacity: 0;
+            transition: var(--transition);
+            z-index: 1;
+        }
+
+        .gallery-item:hover::before {
+            opacity: 1;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: var(--box-shadow-hover);
+        }
+
+        .gallery-item img {
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: 2px solid var(--secondary-color);
+            color: var(--secondary-color);
+            border-radius: 50px;
+            padding: 12px 24px;
+            font-weight: 600;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .filter-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--secondary-color);
+            transition: var(--transition);
+            z-index: -1;
+        }
+
+        .filter-btn:hover::before,
+        .filter-btn.active::before {
+            left: 0;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(197, 160, 89, 0.4);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--secondary-color), var(--secondary-dark));
+            color: white;
+            border-radius: 50px;
+            padding: 15px 30px;
+            font-weight: 600;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: var(--transition);
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(197, 160, 89, 0.4);
+        }
+
+        .section-bg-pattern {
+            background-image:
+                radial-gradient(circle at 25% 25%, rgba(197, 160, 89, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(58, 124, 165, 0.1) 0%, transparent 50%);
+        }
+
+        .hover-scale {
+            transition: var(--transition);
+        }
+
+        .hover-scale:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.7));
+            opacity: 0;
+            transition: var(--transition);
+            display: flex;
+            align-items: end;
+            padding: 20px;
+            z-index: 2;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .stats-counter {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body class="font-sans" style="color: var(--text-color); background-color: var(--bg-color);">
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-4 navbar-sticky">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-heartbeat text-2xl" style="color: var(--secondary-color);"></i>
+                    <img src="images/logo.png" alt="Logo" class="h-10 w-auto" />
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="hover:scale-105 transition-all duration-300"
+                        style="color: var(--text-color);" onmouseover="this.style.color='var(--secondary-color)'"
+                        onmouseout="this.style.color='var(--text-color)'">Home</a>
+                    <a href="about.html" class="hover:scale-105 transition-all duration-300"
+                        style="color: var(--text-color);" onmouseover="this.style.color='var(--secondary-color)'"
+                        onmouseout="this.style.color='var(--text-color)'">About</a>
+                    <a href="services.html" class="hover:scale-105 transition-all duration-300"
+                        style="color: var(--text-color);" onmouseover="this.style.color='var(--secondary-color)'"
+                        onmouseout="this.style.color='var(--text-color)'">Services</a>
+                    <a href="gallery.html" class="font-semibold hover:scale-105 transition-all duration-300"
+                        style="color: var(--secondary-color);">Gallery</a>
+                    <a href="contact.html" class="hover:scale-105 transition-all duration-300"
+                        style="color: var(--text-color);" onmouseover="this.style.color='var(--secondary-color)'"
+                        onmouseout="this.style.color='var(--text-color)'">Contact</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden" style="color: var(--primary-color);">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 bg-white rounded-lg shadow-lg">
+                <a href="index.html" class="block px-4 py-2 hover:bg-gray-50" style="color: var(--text-color);">Home</a>
+                <a href="about.html" class="block px-4 py-2 hover:bg-gray-50"
+                    style="color: var(--text-color);">About</a>
+                <a href="services.html" class="block px-4 py-2 hover:bg-gray-50"
+                    style="color: var(--text-color);">Services</a>
+                <a href="gallery.html" class="block px-4 py-2 bg-gray-50"
+                    style="color: var(--secondary-color);">Gallery</a>
+                <a href="contact.html" class="block px-4 py-2 hover:bg-gray-50"
+                    style="color: var(--text-color);">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient pt-24 pb-16">
+        <div class="container mx-auto px-4">
+            <div class="text-center text-white">
+                <h1 class="text-5xl md:text-6xl font-bold mb-6" data-aos="fade-up">Gallery</h1>
+                <p class="text-xl md:text-2xl max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+                    Showcasing our commitment to quality healthcare services in action - real moments of care,
+                    compassion, and professional excellence
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Stats -->
+    <section class="py-16" style="background-color: var(--card-bg);">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 text-center">
+                <div data-aos="fade-up" data-aos-delay="100">
+                    <div class="stats-counter counter" data-target="500">0</div>
+                    <p class="text-lg font-semibold mt-2" style="color: var(--text-color);">Happy Clients</p>
+                    <p class="text-sm" style="color: var(--text-light);">Satisfied families served</p>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <div class="stats-counter counter" data-target="50">0</div>
+                    <p class="text-lg font-semibold mt-2" style="color: var(--text-color);">Healthcare Facilities</p>
+                    <p class="text-sm" style="color: var(--text-light);">Hospitals and clinics supported</p>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="300">
+                    <div class="stats-counter counter" data-target="1000">0</div>
+                    <p class="text-lg font-semibold mt-2" style="color: var(--text-color);">Care Hours</p>
+                    <p class="text-sm" style="color: var(--text-light);">Monthly care hours delivered</p>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="400">
+                    <div class="stats-counter counter" data-target="24">0</div>
+                    <p class="text-lg font-semibold mt-2" style="color: var(--text-color);">24/7 Support</p>
+                    <p class="text-sm" style="color: var(--text-light);">Round-the-clock availability</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Buttons -->
+    <section class="py-12 section-bg-pattern">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-bold mb-4 text-gradient" data-aos="fade-up">Explore Our Healthcare Services
+                </h2>
+                <p class="text-lg" style="color: var(--text-light);" data-aos="fade-up" data-aos-delay="200">
+                    Filter by service category to see our healthcare professionals in action
+                </p>
+            </div>
+            <div class="flex flex-wrap justify-center gap-4" data-aos="fade-up" data-aos-delay="300">
+                <button class="filter-btn active" data-filter="all">
+                    <i class="fas fa-th-large mr-2"></i>All Services
+                </button>
+                <button class="filter-btn" data-filter="hospital">
+                    <i class="fas fa-hospital mr-2"></i>Hospital Support
+                </button>
+                <button class="filter-btn" data-filter="nursing">
+                    <i class="fas fa-user-md mr-2"></i>Nursing Care
+                </button>
+                <button class="filter-btn" data-filter="homecare">
+                    <i class="fas fa-home mr-2"></i>Home Care
+                </button>
+                <button class="filter-btn" data-filter="patient">
+                    <i class="fas fa-users mr-2"></i>Patient Care
+                </button>
+                <button class="filter-btn" data-filter="events">
+                    <i class="fas fa-calendar mr-2"></i>Events & Training
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Grid -->
+    <section class="py-20" style="background-color: var(--card-bg);">
+        <div class="container mx-auto px-4">
+            <div id="gallery-grid" class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <!-- Hospital Support -->
+                <div class="gallery-item" data-category="hospital" data-aos="fade-up" data-aos-delay="100">
+                    <div class="relative">
+                        <a href="/placeholder.svg?height=400&width=300" data-lightbox="gallery"
+                            data-title="Hospital Administrative Support - Streamlining Operations">
+                            <img src="./images/3.jpeg" alt="Hospital Administrative Support"
+                                class="w-full h-64 object-cover">
+                        </a>
+                        <div class="gallery-overlay">
+                            <div class="text-white">
+                                <h3 class="font-semibold text-lg mb-1">Administrative Support</h3>
+                                <p class="text-sm opacity-90">Streamlining hospital operations</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold mb-2" style="color: var(--text-color);">Hospital Administrative Support
+                        </h3>
+                        <p class="text-sm" style="color: var(--text-light);">Professional administrative coordination
+                            and support services</p>
+                        <div class="flex items-center mt-3">
+                            <span class="px-2 py-1 rounded text-xs font-semibold"
+                                style="background-color: var(--secondary-light); color: var(--text-color);">Hospital
+                                Support</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="hospital" data-aos="fade-up" data-aos-delay="200">
+                    <div class="relative">
+                        <a href="/placeholder.svg?height=400&width=300" data-lightbox="gallery"
+                            data-title="Medical Equipment Management - Professional Handling">
+                            <img src="./images/3.jpeg" alt="Medical Equipment Management"
+                                class="w-full h-64 object-cover">
+                        </a>
+                        <div class="gallery-overlay">
+                            <div class="text-white">
+                                <h3 class="font-semibold text-lg mb-1">Equipment Management</h3>
+                                <p class="text-sm opacity-90">Professional medical equipment handling</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold mb-2" style="color: var(--text-color);">Medical Equipment Management
+                        </h3>
+                        <p class="text-sm" style="color: var(--text-light);">Expert handling and maintenance of medical
+                            equipment</p>
+                        <div class="flex items-center mt-3">
+                            <span class="px-2 py-1 rounded text-xs font-semibold"
+                                style="background-color: var(--secondary-light); color: var(--text-color);">Hospital
+                                Support</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="hospital" data-aos="fade-up" data-aos-delay="300">
+                    <div class="relative">
+                        <a href="/placeholder.svg?height=400&width=300" data-lightbox="gallery"
+                            data-title="Hospital Coordination Services - Seamless Operations">
+                            <img src="/placeholder.svg?height=400&width=300" alt="Hospital Coordination"
+                                class="w-full h-64 object-cover">
+                        </a>
+                        <div class="gallery-overlay">
+                            <div class="text-white">
+                                <h3 class="font-semibold text-lg mb-1">Hospital Coordination</h3>
+                                <p class="text-sm opacity-90">Seamless hospital operations support</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold mb-2" style="color: var(--text-color);">Hospital Coordination Services
+                        </h3>
+                        <p class="text-sm" style="color: var(--text-light);">Comprehensive coordination for smooth
+                            hospital operations</p>
+                        <div class="flex items-center mt-3">
+                            <span class="px-2 py-1 rounded text-xs font-semibold"
+                                style="background-color: var(--secondary-light); color: var(--text-color);">Hospital
+                                Support</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Nursing Care -->
+                <div class="gallery-item" data-category="nursing" data-aos="fade-up" data-aos-delay="100">
+                    <div class="relative">
+                        <a href="/placeholder.svg?height=400&width=300" data-lightbox="gallery"
+                            data-title="Professional Nursing Care - Certified Excellence">
+                            <img src="/placeholder.svg?height=400&width=300" alt="Professional Nursing Care"
+                                class="w-full h-64 object-cover">
+                        </a>
+                        <div class="gallery-overlay">
+                            <div class="text-white">
+                                <h3 class="font-semibold text-lg mb-1">Professional Nursing</h3>
+                                <p class="text-sm opacity-90">Certified nursing professionals at work</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold mb-2" style="color: var(--text-color);">Professional Nursing Care</h3>
+                        <p class="text-sm" style="color: var(--text-light);">Certified nursing professionals providing
+                            expert care</p>
+                        <div class="flex items-center mt-3">
+                            <span class="px-2 py-1 rounded text-xs font-semibold"
+                                style="background-color: var(--accent-color); color: white;">Nursing Care</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="nursing" data-aos="fade-up" data-aos-delay="200">
+                    <div class="relative">
+                        <a href="/placeholder.svg?height=400&width=300" data-lightbox="gallery"
+                            data-title="Patient Monitoring and Care - Continuous Support">
+                            <img src="/placeholder.svg?height=400&width=300" alt="Patient Monitoring"
+                                class="w-full h-64 object-cover">
+                        </a>
+                        <div class="gallery-overlay">
+                            <div class="text-white">
+                                <h3 class="font-semibold text-lg mb-1">Patient Monitoring</h3>
+                                <p class="text-sm opacity-90">Continuous patient care and monitoring</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold mb-2" style="color: var(--text-color);">Patient Monitoring & Care</h3>
+                        <p class="text-sm" style="color: var(--text-light);">24/7 patient monitoring and comprehensive
+                            care</p>
+                        <div class="flex items-center mt-3">
+                            <span class="px-2 py-1 rounded text-xs font-semibold"
+                                style="background-color: var(--accent-color); color: white;">Nursing Care</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="nursing" data-aos="fade-up" data-aos-delay="300">
+                    <div class="relative">
+                        <a href="/placeholder.svg?height=400&width=300" data-lightbox="gallery"
+                            data-title="Medication Management - Safe Administration">
+                            <img src="/placeholder.svg?height=400&width=300" alt="Medication Management"
+                                class="w-full h-64 object-cover">
+                        </a>
+                        <div class="gallery-overlay">
+                            <div class="text-white">
+                                <h3 class="font-semibold text-lg mb-1">Medication Management</h3>
+                                <p class="text-sm opacity-90">Safe medication administration</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold mb-2" style="color: var(--text-color);">Medication Management</h3>
+                        <p class="text-sm" style="color: var(--text-light);">Professional medication administration and
+                            management</p>
+                        <div class="flex items-center mt-3">
+                            <span class="px-2 py-1 rounded text-xs font-semibold"
+                                style="background-color: var(--accent-color); color: white;">Nursing Care</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Home Care -->
+                <div class="gallery-item" data-category="homecare" data-aos="fade-up" data-aos-delay="100">
+                    <div class="relative">
+                        <a href="/placeholder.svg?height=400&width=300" data-lightbox="gallery"
+                            data-title="Home Nursing Services - Comfort of Home">
+                            <img src="/placeholder.svg?height=400&width=300" alt="Home Nursing Services"
+                                class="w-full h-64 object-cover">
+                        </a>
+                        <div class="gallery-overlay">
+                            <div class="text-white">
+                                <h3 class="font-semibold text-lg mb-1">Home Nursing</h3>
+                                <p class="text-sm opacity-90">Quality nursing care at home</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold mb-2" style="color: var(--text-color);">Home Nursing Services</h3>
+                        <p class="text-sm" style="color: var(--text-light);">Professional nursing care in the comfort of
+                            home</p>
+                        <div class="flex items-center mt-3">
+                            <span class="px-2 py-1 rounded text-xs font-semibold"
+                                style="background-color: var(--primary-color); color: white;">Home Care</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="homecare" data-aos="fade-up" data-aos-delay="200">
+                    <div class="relative">
+                        <a href="/placeholder.svg?height=400&width=300" data-lightbox="gallery"
+                            data-title="Elder Care Services - Compassionate Support">
+                            <img src="/placeholder.svg?height=400&width=300" alt="Elder Care Services"
+                                class="w-full h-64 object-cover">
+                        </a>
+                        <div class="gallery-overlay">
+                            <div class="text-white">
+                                <h3 class="font-semibold text-lg mb-1">Elder Care</h3>
+                                <p class="text-sm opacity-90">Compassionate care for elderly patients</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold mb-2" style="color: var(--text-color);">Elder Care Services</h3>
+                        <p class="text-sm" style="color: var(--text-light);">Specialized care and support for elderly
+                            patients</p>
+                        <div class="flex items-center mt-3">
+                            <span class="px-2 py-1 rounded text-xs font-semibold"
+                                style="background-color: var(--primary-color); color: white;">Home Care</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="homecare" data-aos="fade-up" data-aos-delay="300">
+                    <div class="relative">
+                        <a href="/placeholder.svg?height=400&width=300" data-lightbox="gallery"
+                            data-title="Post-Operative Home Care - Recovery Support">
+                            <img src="/placeholder.svg?height=400&width=300" alt="Post-Operative Care"
+                                class="w-full h-64 object-cover">
+                        </a>
+                        <div class="gallery-overlay">
+                            <div class="text-white">
+                                <h3 class="font-semibold text-lg mb-1">Post-Operative Care</h3>
+                                <p class="text-sm opacity-90">Recovery support at home</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold mb-2" style="color: var(--text-color);">Post-Operative Home Care</h3>
+                        <p class="text-sm" style="color: var(--text-light);">Comprehensive recovery support in home
+                            environment</p>
+                        <div class="flex items-center mt-3">
+                            <span class="px-2 py-1 rounded text-xs font-semibold"
+                                style="background-color: var(--primary-color); color: white;">Home Care</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Patient Care -->
+                <div class="gallery-item" data-category="patient" data-aos="fade-up" data-aos-delay="100">
+                    <div class="relative">
+                        <a href="/placeholder.svg?height=400&width=300" data-lightbox="gallery"
+                            data-title="Personalized Patient Care - Individual Attention">
+                            <img src="/placeholder.svg?height=400&width=300" alt="Personalized Patient Care"
+                                class="w-full h-64 object-cover">
+                        </a>
+                        <div class="gallery-overlay">
+                            <div class="text-white">
+                                <h3 class="font-semibold text-lg mb-1">Personalized Care</h3>
+                                <p class="text-sm opacity-90">Individual attention and support</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold mb-2" style="color: var(--text-color);">Personalized Patient Care</h3>
+                        <p class="text-sm" style="color: var(--text-light);">Tailored care plans for individual patient
+                            needs</p>
+                        <div class="flex items-center mt-3">
+                            <span class="px-2 py-1 rounded text-xs font-semibold"
+                                style="background-color: var(--secondary-dark); color: white;">Patient Care</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="patient" data-aos="fade-up" data-aos-delay="200">
+                    <div class="relative">
+                        <a href="/placeholder.svg?height=400&width=300" data-lightbox="gallery"
+                            data-title="Mobility Assistance - Supporting Independence">
+                            <img src="/placeholder.svg?height=400&width=300" alt="Mobility Assistance"
+                                class="w-full h-64 object-cover">
+                        </a>
+                        <div class="gallery-overlay">
+                            <div class="text-white">
+                                <h3 class="font-semibold text-lg mb-1">Mobility Assistance</h3>
+                                <p class="text-sm opacity-90">Supporting patient independence</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold mb-2" style="color: var(--text-color);">Mobility Assistance</h3>
+                        <p class="text-sm" style="color: var(--text-light);">Professional support for patient mobility
+                            and independence</p>
+                        <div class="flex items-center mt-3">
+                            <span class="px-2 py-1 rounded text-xs font-semibold"
+                                style="background-color: var(--secondary-dark); color: white;">Patient Care</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Events & Training -->
+                <div class="gallery-item" data-category="events" data-aos="fade-up" data-aos-delay="100">
+                    <div class="relative">
+                        <a href="/placeholder.svg?height=400&width=300" data-lightbox="gallery"
+                            data-title="Healthcare Training Workshop - Professional Development">
+                            <img src="/placeholder.svg?height=400&width=300" alt="Healthcare Training"
+                                class="w-full h-64 object-cover">
+                        </a>
+                        <div class="gallery-overlay">
+                            <div class="text-white">
+                                <h3 class="font-semibold text-lg mb-1">Training Workshop</h3>
+                                <p class="text-sm opacity-90">Professional development sessions</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold mb-2" style="color: var(--text-color);">Healthcare Training Workshop
+                        </h3>
+                        <p class="text-sm" style="color: var(--text-light);">Continuous professional development and
+                            training</p>
+                        <div class="flex items-center mt-3">
+                            <span class="px-2 py-1 rounded text-xs font-semibold"
+                                style="background-color: var(--primary-light); color: white;">Training</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="events" data-aos="fade-up" data-aos-delay="200">
+                    <div class="relative">
+                        <a href="/placeholder.svg?height=400&width=300" data-lightbox="gallery"
+                            data-title="Health Awareness Campaign - Community Outreach">
+                            <img src="/placeholder.svg?height=400&width=300" alt="Health Awareness"
+                                class="w-full h-64 object-cover">
+                        </a>
+                        <div class="gallery-overlay">
+                            <div class="text-white">
+                                <h3 class="font-semibold text-lg mb-1">Health Awareness</h3>
+                                <p class="text-sm opacity-90">Community health education</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold mb-2" style="color: var(--text-color);">Health Awareness Campaign</h3>
+                        <p class="text-sm" style="color: var(--text-light);">Community health education and awareness
+                            programs</p>
+                        <div class="flex items-center mt-3">
+                            <span class="px-2 py-1 rounded text-xs font-semibold"
+                                style="background-color: var(--primary-light); color: white;">Community</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="events" data-aos="fade-up" data-aos-delay="300">
+                    <div class="relative">
+                        <a href="/placeholder.svg?height=400&width=300" data-lightbox="gallery"
+                            data-title="Team Building Event - Strengthening Healthcare Teams">
+                            <img src="/placeholder.svg?height=400&width=300" alt="Team Building"
+                                class="w-full h-64 object-cover">
+                        </a>
+                        <div class="gallery-overlay">
+                            <div class="text-white">
+                                <h3 class="font-semibold text-lg mb-1">Team Building</h3>
+                                <p class="text-sm opacity-90">Strengthening our healthcare team</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold mb-2" style="color: var(--text-color);">Team Building Event</h3>
+                        <p class="text-sm" style="color: var(--text-light);">Building stronger healthcare teams for
+                            better care</p>
+                        <div class="flex items-center mt-3">
+                            <span class="px-2 py-1 rounded text-xs font-semibold"
+                                style="background-color: var(--primary-light); color: white;">Team Building</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Gallery Items -->
+                <div class="gallery-item" data-category="hospital" data-aos="fade-up" data-aos-delay="400">
+                    <div class="relative">
+                        <a href="/placeholder.svg?height=400&width=300" data-lightbox="gallery"
+                            data-title="Quality Assurance Process - Maintaining Excellence">
+                            <img src="/placeholder.svg?height=400&width=300" alt="Quality Assurance"
+                                class="w-full h-64 object-cover">
+                        </a>
+                        <div class="gallery-overlay">
+                            <div class="text-white">
+                                <h3 class="font-semibold text-lg mb-1">Quality Assurance</h3>
+                                <p class="text-sm opacity-90">Maintaining high standards</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold mb-2" style="color: var(--text-color);">Quality Assurance Process</h3>
+                        <p class="text-sm" style="color: var(--text-light);">Continuous quality monitoring and
+                            improvement</p>
+                        <div class="flex items-center mt-3">
+                            <span class="px-2 py-1 rounded text-xs font-semibold"
+                                style="background-color: var(--secondary-light); color: var(--text-color);">Quality
+                                Control</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="nursing" data-aos="fade-up" data-aos-delay="500">
+                    <div class="relative">
+                        <a href="/placeholder.svg?height=400&width=300" data-lightbox="gallery"
+                            data-title="Emergency Response Team - Critical Care Support">
+                            <img src="/placeholder.svg?height=400&width=300" alt="Emergency Response"
+                                class="w-full h-64 object-cover">
+                        </a>
+                        <div class="gallery-overlay">
+                            <div class="text-white">
+                                <h3 class="font-semibold text-lg mb-1">Emergency Response</h3>
+                                <p class="text-sm opacity-90">Critical care support</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold mb-2" style="color: var(--text-color);">Emergency Response Team</h3>
+                        <p class="text-sm" style="color: var(--text-light);">Rapid response for critical healthcare
+                            situations</p>
+                        <div class="flex items-center mt-3">
+                            <span class="px-2 py-1 rounded text-xs font-semibold"
+                                style="background-color: var(--accent-color); color: white;">Emergency Care</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="patient" data-aos="fade-up" data-aos-delay="600">
+                    <div class="relative">
+                        <a href="/placeholder.svg?height=400&width=300" data-lightbox="gallery"
+                            data-title="Family Support Services - Comprehensive Care">
+                            <img src="/placeholder.svg?height=400&width=300" alt="Family Support"
+                                class="w-full h-64 object-cover">
+                        </a>
+                        <div class="gallery-overlay">
+                            <div class="text-white">
+                                <h3 class="font-semibold text-lg mb-1">Family Support</h3>
+                                <p class="text-sm opacity-90">Comprehensive family care</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold mb-2" style="color: var(--text-color);">Family Support Services</h3>
+                        <p class="text-sm" style="color: var(--text-light);">Supporting families through healthcare
+                            journeys</p>
+                        <div class="flex items-center mt-3">
+                            <span class="px-2 py-1 rounded text-xs font-semibold"
+                                style="background-color: var(--secondary-dark); color: white;">Family Care</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 section-bg-pattern">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 text-gradient" data-aos="fade-up">Client Experiences</h2>
+                <p class="text-xl max-w-3xl mx-auto" style="color: var(--text-light);" data-aos="fade-up"
+                    data-aos-delay="200">
+                    Real stories from families and healthcare facilities who have experienced our quality care
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="gallery-item p-8" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center mb-4" style="color: var(--secondary-color);">
+                        <i class="fas fa-star text-xl"></i>
+                        <i class="fas fa-star text-xl"></i>
+                        <i class="fas fa-star text-xl"></i>
+                        <i class="fas fa-star text-xl"></i>
+                        <i class="fas fa-star text-xl"></i>
+                    </div>
+                    <p class="mb-6 italic leading-relaxed" style="color: var(--text-light);">
+                        "The nursing care provided by Quality Healthcare Services was exceptional. Their staff showed
+                        genuine compassion and professionalism throughout my mother's recovery period."
+                    </p>
+                    <div class="flex items-center">
+                        <img src="/placeholder.svg?height=50&width=50" alt="Client" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold" style="color: var(--text-color);">Mrs. Priya Sharma</h4>
+                            <p class="text-sm" style="color: var(--text-light);">Family Client, Nashik</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item p-8" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center mb-4" style="color: var(--secondary-color);">
+                        <i class="fas fa-star text-xl"></i>
+                        <i class="fas fa-star text-xl"></i>
+                        <i class="fas fa-star text-xl"></i>
+                        <i class="fas fa-star text-xl"></i>
+                        <i class="fas fa-star text-xl"></i>
+                    </div>
+                    <p class="mb-6 italic leading-relaxed" style="color: var(--text-light);">
+                        "We have been partnering with Quality Healthcare Services for our hospital support needs for
+                        over three years. Their reliability and quality of service is unmatched."
+                    </p>
+                    <div class="flex items-center">
+                        <img src="/placeholder.svg?height=50&width=50" alt="Client" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold" style="color: var(--text-color);">Dr. Rajesh Patel</h4>
+                            <p class="text-sm" style="color: var(--text-light);">Hospital Administrator</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item p-8" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex items-center mb-4" style="color: var(--secondary-color);">
+                        <i class="fas fa-star text-xl"></i>
+                        <i class="fas fa-star text-xl"></i>
+                        <i class="fas fa-star text-xl"></i>
+                        <i class="fas fa-star text-xl"></i>
+                        <i class="fas fa-star text-xl"></i>
+                    </div>
+                    <p class="mb-6 italic leading-relaxed" style="color: var(--text-light);">
+                        "The home care services helped my father recover comfortably at home after his surgery. The
+                        nurses were skilled, compassionate, and always available when needed."
+                    </p>
+                    <div class="flex items-center">
+                        <img src="/placeholder.svg?height=50&width=50" alt="Client" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold" style="color: var(--text-color);">Mr. Suresh Kumar</h4>
+                            <p class="text-sm" style="color: var(--text-light);">Home Care Client</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20" style="background: linear-gradient(135deg, var(--primary-color), var(--primary-light));">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-6 text-white" data-aos="fade-up">Experience Quality Healthcare Services
+            </h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto text-white opacity-90" data-aos="fade-up" data-aos-delay="200">
+                Join the hundreds of satisfied clients who trust us with their healthcare needs. Contact us today to
+                learn more about our comprehensive healthcare solutions.
+            </p>
+            <div class="space-x-4" data-aos="fade-up" data-aos-delay="400">
+                <a href="contact.html"
+                    class="bg-white hover:bg-gray-100 px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 inline-block transform hover:scale-105"
+                    style="color: var(--primary-color);">
+                    Contact Us Today
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+                <a href="services.html"
+                    class="border-2 border-white text-white hover:bg-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 inline-block hover:scale-105"
+                    style="color: var(--primary-color);">
+                    Our Services
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="col-span-2 md:col-span-1">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-10 h-10 bg-gradient-to-r rounded-lg flex items-center justify-center"
+                            style="background: linear-gradient(135deg, var(--secondary-color), var(--secondary-dark));">
+                            <i class="fas fa-heartbeat text-white text-xl"></i>
+                        </div>
+                        <span class="text-xl font-bold">Quality Healthcare</span>
+                    </div>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        Providing comprehensive healthcare solutions with professional excellence and compassionate care
+                        for over a decade.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/share/1CKmDS4uBg/"
+                            class="text-gray-300 hover:text-white transition-colors hover-scale">
+                            <i class="fab fa-facebook text-2xl"></i>
+                        </a>
+
+                        <a href="#" class="text-gray-300 hover:text-white transition-colors hover-scale">
+                            <i class="fab fa-linkedin text-2xl"></i>
+                        </a>
+                        <a href="https://www.instagram.com/qualityhcs_nashik?igsh=MXYxd2M0OHU5MWVzaw=="
+                            class="text-gray-300 hover:text-white transition-colors hover-scale">
+                            <i class="fab fa-instagram text-2xl"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold mb-6" style="color: var(--secondary-color);">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#about" class="text-gray-300 hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="#services" class="text-gray-300 hover:text-white transition-colors">Our
+                                Services</a></li>
+                        <li><a href="#process" class="text-gray-300 hover:text-white transition-colors">How We Work</a>
+                        </li>
+                        <li><a href="#contact" class="text-gray-300 hover:text-white transition-colors">Contact Us</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold mb-6" style="color: var(--secondary-color);">Our Services</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Nursing Care</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Hospital Support</a>
+                        </li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Home Care</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Patient Care</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Housekeeping</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold mb-6" style="color: var(--secondary-color);">Contact Information
+                    </h4>
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <i class="fas fa-map-marker-alt mt-1" style="color: var(--secondary-color);"></i>
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                Office No. 18, Shubharambh Apt, near Irrigation Colony, Ramkrishna Nagar, Makhmalabad,
+                                Nashik, Maharashtra 422003
+                            </p>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-phone" style="color: var(--secondary-color);"></i>
+                            <p class="text-gray-300">+91 86050 74717</p>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-envelope" style="color: var(--secondary-color);"></i>
+                            <p class="text-gray-300">info@qualityhealthcare.com</p>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-clock" style="color: var(--secondary-color);"></i>
+                            <p class="text-gray-300">24/7 Emergency Support</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+                <p class="text-gray-400">
+                    &copy; 2024 Quality Healthcare Services. All rights reserved. | Designed with ❤️ for better
+                    healthcare
+                </p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100,
+            easing: 'ease-out-cubic'
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', function () {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Gallery filter functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', function () {
+                const filter = this.getAttribute('data-filter');
+
+                // Update active button
+                filterBtns.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+
+                // Filter gallery items
+                galleryItems.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.style.display = 'block';
+                        setTimeout(() => {
+                            item.style.opacity = '1';
+                            item.style.transform = 'scale(1)';
+                        }, 10);
+                    } else {
+                        item.style.opacity = '0';
+                        item.style.transform = 'scale(0.8)';
+                        setTimeout(() => {
+                            item.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+
+        // Counter animation
+        function animateCounters() {
+            const counters = document.querySelectorAll('.counter');
+
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const increment = target / 100;
+                let current = 0;
+
+                const updateCounter = () => {
+                    if (current < target) {
+                        current += increment;
+                        counter.textContent = Math.ceil(current);
+                        setTimeout(updateCounter, 30);
+                    } else {
+                        counter.textContent = target;
+                    }
+                };
+
+                updateCounter();
+            });
+        }
+
+        // Trigger counter animation when visible
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    observer.unobserve(entry.target);
+                }
+            });
+        });
+
+        const counterSection = document.querySelector('.stats-counter');
+        if (counterSection) {
+            observer.observe(counterSection.parentElement);
+        }
+
+        // Lightbox configuration
+        lightbox.option({
+            'resizeDuration': 200,
+            'wrapAround': true,
+            'albumLabel': 'Image %1 of %2',
+            'fadeDuration': 300,
+            'imageFadeDuration': 300
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Quality Healthcare Services | Professional Healthcare Team in Nashik</title>
+    <meta name="description"
+        content="Learn about Quality Healthcare Services, our mission, vision, and leadership team led by Mr. Akash S. Sawakar. Over 10 years of healthcare excellence in Nashik, Maharashtra.">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css">
+
+    <style>
+        :root {
+            --primary-color: #1d3e4c;
+            --primary-dark: #152c36;
+            --primary-light: #2a5a6e;
+            --secondary-color: #c5a059;
+            --secondary-light: #d9bc85;
+            --secondary-dark: #a88440;
+            --accent-color: #3a7ca5;
+            --text-color: #2b2d42;
+            --text-light: #6c757d;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --border-radius: 10px;
+            --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --box-shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.2);
+            --transition: all 0.3s ease;
+        }
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100vw;
+        }
+
+        .navbar-sticky {
+            backdrop-filter: blur(15px);
+            background-color: rgba(248, 249, 250, 0.95);
+            box-shadow: var(--box-shadow);
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 50%, var(--accent-color) 100%);
+        }
+
+
+        .testimonial-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--box-shadow-hover);
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+            transform: scaleX(0);
+            transition: var(--transition);
+        }
+
+        .feature-card:hover::after {
+            transform: scaleX(1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--box-shadow-hover);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--secondary-color), var(--secondary-dark));
+            color: white;
+            border-radius: 50px;
+            padding: 15px 30px;
+            font-weight: 600;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: var(--transition);
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(197, 160, 89, 0.4);
+        }
+
+        .stats-counter {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-bg-pattern {
+            background-image:
+                radial-gradient(circle at 25% 25%, rgba(197, 160, 89, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(58, 124, 165, 0.1) 0%, transparent 50%);
+        }
+
+        .hover-scale {
+            transition: var(--transition);
+        }
+
+        .hover-scale:hover {
+            transform: scale(1.05);
+        }
+
+        .leadership-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .leadership-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(197, 160, 89, 0.1), transparent);
+            transition: var(--transition);
+        }
+
+        .leadership-card:hover::before {
+            left: 100%;
+        }
+
+        .leadership-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--box-shadow-hover);
+        }
+    </style>
+</head>
+
+<body class="font-sans" style="color: var(--text-color); background-color: var(--bg-color);">
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-4 navbar-sticky">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-heartbeat text-2xl" style="color: var(--secondary-color);"></i>
+                    <img src="images/logo.png" alt="Logo" class="h-10 w-auto" />
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="hover:scale-105 transition-all duration-300"
+                        style="color: var(--text-color);" onmouseover="this.style.color='var(--secondary-color)'"
+                        onmouseout="this.style.color='var(--text-color)'">Home</a>
+                    <a href="about.html" class="font-semibold hover:scale-105 transition-all duration-300"
+                        style="color: var(--secondary-color);">About</a>
+                    <a href="services.html" class="hover:scale-105 transition-all duration-300"
+                        style="color: var(--text-color);" onmouseover="this.style.color='var(--secondary-color)'"
+                        onmouseout="this.style.color='var(--text-color)'">Services</a>
+                    <a href="gallery.html" class="hover:scale-105 transition-all duration-300"
+                        style="color: var(--text-color);" onmouseover="this.style.color='var(--secondary-color)'"
+                        onmouseout="this.style.color='var(--text-color)'">Gallery</a>
+                    <a href="contact.html" class="hover:scale-105 transition-all duration-300"
+                        style="color: var(--text-color);" onmouseover="this.style.color='var(--secondary-color)'"
+                        onmouseout="this.style.color='var(--text-color)'">Contact</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 bg-white rounded-lg shadow-lg">
+                <a href="index.html" class="block px-4 py-2 hover:bg-gray-50" style="color: var(--text-color);">Home</a>
+                <a href="about.html" class="block px-4 py-2 bg-gray-50" style="color: var(--secondary-color);">About</a>
+                <a href="services.html" class="block px-4 py-2 hover:bg-gray-50"
+                    style="color: var(--text-color);">Services</a>
+                <a href="gallery.html" class="block px-4 py-2 hover:bg-gray-50"
+                    style="color: var(--text-color);">Gallery</a>
+                <a href="contact.html" class="block px-4 py-2 hover:bg-gray-50"
+                    style="color: var(--text-color);">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient pt-24 pb-16">
+        <div class="container mx-auto px-4">
+            <div class="text-center text-white">
+                <h1 class="text-5xl md:text-6xl font-bold mb-6" data-aos="fade-up">About Us</h1>
+                <p class="text-xl md:text-2xl max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+                    Dedicated to providing exceptional healthcare services with compassion, professionalism, and
+                    unwavering commitment to excellence
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Company Overview -->
+    <section class="py-20" style="background-color: var(--card-bg);">
+        <div class="container mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right">
+                    <h2 class="text-4xl font-bold mb-6 text-gradient">Our Story</h2>
+                    <p class="text-lg mb-6" style="color: var(--text-light);">
+                        Quality Healthcare Services was founded with a vision to bridge the gap between healthcare needs
+                        and quality service delivery. For over a decade, we have been serving the community with
+                        dedication, providing comprehensive healthcare solutions that prioritize patient care, safety,
+                        and satisfaction.
+                    </p>
+                    <p class="text-lg mb-6" style="color: var(--text-light);">
+                        Our journey began with a simple yet powerful mission: to make quality healthcare accessible,
+                        reliable, and compassionate. Today, we stand as a trusted partner for hospitals, healthcare
+                        institutions, and families seeking dependable healthcare support services across Maharashtra.
+                    </p>
+                    <p class="text-lg mb-8" style="color: var(--text-light);">
+                        Our commitment to excellence has earned us the trust of over 500 clients, and our team of
+                        certified professionals continues to set new standards in healthcare service delivery.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="text-center">
+                            <div class="stats-counter counter" data-target="500">0</div>
+                            <p style="color: var(--text-light);">Happy Clients</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="stats-counter counter" data-target="10">0</div>
+                            <p style="color: var(--text-light);">Years Experience</p>
+                        </div>
+                    </div>
+                </div>
+                <div data-aos="fade-left">
+                    <img src="/images/logo.png" alt="Healthcare Team" class="rounded-lg shadow-lg w-full hover-scale">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision -->
+    <section class="py-20 section-bg-pattern">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 text-gradient" data-aos="fade-up">Mission & Vision</h2>
+                <p class="text-xl max-w-3xl mx-auto" style="color: var(--text-light);" data-aos="fade-up"
+                    data-aos-delay="200">
+                    Our guiding principles that drive everything we do
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="feature-card p-8" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-6xl mb-6 text-center" style="color: var(--secondary-color);">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-center" style="color: var(--text-color);">Our Mission</h3>
+                    <p class="text-center text-lg leading-relaxed" style="color: var(--text-light);">
+                        To provide exceptional healthcare services that enhance the quality of life for our clients
+                        through professional excellence, compassionate care, and innovative solutions tailored to meet
+                        individual needs. We strive to be the bridge between healthcare requirements and quality service
+                        delivery, ensuring every patient receives the care they deserve.
+                    </p>
+                </div>
+
+                <div class="feature-card p-8" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-6xl mb-6 text-center" style="color: var(--accent-color);">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-center" style="color: var(--text-color);">Our Vision</h3>
+                    <p class="text-center text-lg leading-relaxed" style="color: var(--text-light);">
+                        To be the leading healthcare service provider in the region, recognized for our commitment to
+                        quality, reliability, and patient-centered care that makes a positive difference in people's
+                        lives. We envision a future where quality healthcare is accessible to all, supported by our
+                        professional expertise and compassionate approach.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership -->
+    <section class="py-20" style="background-color: var(--card-bg);">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 text-gradient" data-aos="fade-up">Leadership</h2>
+                <p class="text-xl" style="color: var(--text-light);" data-aos="fade-up" data-aos-delay="200">
+                    Meet the visionary leader behind Quality Healthcare Services
+                </p>
+            </div>
+
+            <div class="max-w-5xl mx-auto">
+                <div class="leadership-card p-8 md:p-12" data-aos="fade-up">
+                    <div class="grid md:grid-cols-3 gap-8 items-center">
+                        <div class="text-center">
+                            <img src="./images/akash.png" alt="Mr. Akash S. Sawakar"
+                                class="w-48 h-48 rounded-full mx-auto mb-4 object-cover shadow-lg hover-scale">
+                            <h3 class="text-2xl font-bold mb-2" style="color: var(--text-color);">Mr. Akash S. Sawakar
+                            </h3>
+                            <p class="font-semibold mb-4" style="color: var(--secondary-color);">Founder & CEO</p>
+                            <div class="flex justify-center space-x-4">
+                                <a href="#" class="hover-scale" style="color: var(--accent-color);">
+                                    <i class="fab fa-linkedin text-2xl"></i>
+                                </a>
+                                <a href="#" class="hover-scale" style="color: var(--accent-color);">
+                                    <i class="fas fa-envelope text-2xl"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="md:col-span-2">
+                            <h4 class="text-xl font-semibold mb-4" style="color: var(--primary-color);">Visionary
+                                Leadership in Healthcare</h4>
+                            <p class="text-lg mb-6" style="color: var(--text-light);">
+                                With over a decade of experience in the healthcare industry, Mr. Akash S. Sawakar
+                                founded Quality Healthcare Services with a vision to transform healthcare delivery
+                                through innovative solutions and compassionate care. His deep understanding of
+                                healthcare challenges and commitment to excellence has been the driving force behind the
+                                company's success.
+                            </p>
+                            <p class="text-lg mb-6" style="color: var(--text-light);">
+                                Under his leadership, the company has grown from a small healthcare service provider to
+                                a trusted partner for hundreds of clients across Maharashtra. His focus on quality,
+                                professional development, and patient-centered care has established Quality Healthcare
+                                Services as a leader in the healthcare support industry.
+                            </p>
+                            <p class="text-lg mb-6" style="color: var(--text-light);">
+                                Mr. Sawakar's commitment to continuous improvement and innovation ensures that the
+                                company stays at the forefront of healthcare service delivery, always adapting to meet
+                                the evolving needs of patients and healthcare institutions.
+                            </p>
+                            <div class="flex flex-wrap gap-3">
+                                <span class="px-4 py-2 rounded-full text-sm font-semibold"
+                                    style="background-color: var(--secondary-light); color: var(--text-color);">Healthcare
+                                    Management</span>
+                                <span class="px-4 py-2 rounded-full text-sm font-semibold"
+                                    style="background-color: var(--secondary-light); color: var(--text-color);">Business
+                                    Leadership</span>
+                                <span class="px-4 py-2 rounded-full text-sm font-semibold"
+                                    style="background-color: var(--secondary-light); color: var(--text-color);">Strategic
+                                    Planning</span>
+                                <span class="px-4 py-2 rounded-full text-sm font-semibold"
+                                    style="background-color: var(--secondary-light); color: var(--text-color);">Quality
+                                    Assurance</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <!-- <section class="py-20 section-bg-pattern">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 text-gradient" data-aos="fade-up">Client Testimonials</h2>
+                <p class="text-xl" style="color: var(--text-light);" data-aos="fade-up" data-aos-delay="200">
+                    What our clients say about our services and commitment to excellence
+                </p>
+            </div>
+
+            <div class="swiper testimonial-swiper" data-aos="fade-up" data-aos-delay="300">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="testimonial-card p-8 mx-4">
+                            <div class="flex justify-center mb-4" style="color: var(--secondary-color);">
+                                <i class="fas fa-star text-2xl"></i>
+                                <i class="fas fa-star text-2xl"></i>
+                                <i class="fas fa-star text-2xl"></i>
+                                <i class="fas fa-star text-2xl"></i>
+                                <i class="fas fa-star text-2xl"></i>
+                            </div>
+                            <p class="text-lg mb-6 text-center italic leading-relaxed"
+                                style="color: var(--text-light);">
+                                "Quality Healthcare Services provided exceptional nursing care for my elderly mother
+                                during her recovery period. Their staff is not only highly professional but also
+                                genuinely caring and compassionate. The 24/7 support gave our entire family tremendous
+                                peace of mind during a difficult time."
+                            </p>
+                            <div class="text-center">
+                                <img src="/placeholder.svg?height=60&width=60" alt="Client"
+                                    class="w-15 h-15 rounded-full mx-auto mb-3">
+                                <h4 class="font-semibold" style="color: var(--text-color);">Mrs. Priya Sharma</h4>
+                                <p style="color: var(--text-light);">Family Client, Nashik</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="testimonial-card p-8 mx-4">
+                            <div class="flex justify-center mb-4" style="color: var(--secondary-color);">
+                                <i class="fas fa-star text-2xl"></i>
+                                <i class="fas fa-star text-2xl"></i>
+                                <i class="fas fa-star text-2xl"></i>
+                                <i class="fas fa-star text-2xl"></i>
+                                <i class="fas fa-star text-2xl"></i>
+                            </div>
+                            <p class="text-lg mb-6 text-center italic leading-relaxed"
+                                style="color: var(--text-light);">
+                                "We have been partnering with Quality Healthcare Services for our hospital support needs
+                                for over three years. Their reliability, professionalism, and consistent quality of
+                                service is unmatched in the region. They have become an integral part of our healthcare
+                                delivery system."
+                            </p>
+                            <div class="text-center">
+                                <img src="/placeholder.svg?height=60&width=60" alt="Client"
+                                    class="w-15 h-15 rounded-full mx-auto mb-3">
+                                <h4 class="font-semibold" style="color: var(--text-color);">Dr. Rajesh Patel</h4>
+                                <p style="color: var(--text-light);">Hospital Administrator, Nashik</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="testimonial-card p-8 mx-4">
+                            <div class="flex justify-center mb-4" style="color: var(--secondary-color);">
+                                <i class="fas fa-star text-2xl"></i>
+                                <i class="fas fa-star text-2xl"></i>
+                                <i class="fas fa-star text-2xl"></i>
+                                <i class="fas fa-star text-2xl"></i>
+                                <i class="fas fa-star text-2xl"></i>
+                            </div>
+                            <p class="text-lg mb-6 text-center italic leading-relaxed"
+                                style="color: var(--text-light);">
+                                "The home care services provided by Quality Healthcare helped my father recover
+                                comfortably at home after his major surgery. The nurses were skilled, compassionate, and
+                                always available when needed. I highly recommend their services to anyone seeking
+                                quality healthcare at home."
+                            </p>
+                            <div class="text-center">
+                                <img src="/placeholder.svg?height=60&width=60" alt="Client"
+                                    class="w-15 h-15 rounded-full mx-auto mb-3">
+                                <h4 class="font-semibold" style="color: var(--text-color);">Mr. Suresh Kumar</h4>
+                                <p style="color: var(--text-light);">Home Care Client, Nashik</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="testimonial-card p-8 mx-4">
+                            <div class="flex justify-center mb-4" style="color: var(--secondary-color);">
+                                <i class="fas fa-star text-2xl"></i>
+                                <i class="fas fa-star text-2xl"></i>
+                                <i class="fas fa-star text-2xl"></i>
+                                <i class="fas fa-star text-2xl"></i>
+                                <i class="fas fa-star text-2xl"></i>
+                            </div>
+                            <p class="text-lg mb-6 text-center italic leading-relaxed"
+                                style="color: var(--text-light);">
+                                "Quality Healthcare Services has been instrumental in helping us maintain high standards
+                                of patient care in our facility. Their trained staff and systematic approach to
+                                healthcare support has significantly improved our operational efficiency and patient
+                                satisfaction."
+                            </p>
+                            <div class="text-center">
+                                <img src="/placeholder.svg?height=60&width=60" alt="Client"
+                                    class="w-15 h-15 rounded-full mx-auto mb-3">
+                                <h4 class="font-semibold" style="color: var(--text-color);">Dr. Meera Joshi</h4>
+                                <p style="color: var(--text-light);">Medical Director, Healthcare Facility</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Values -->
+    <section class="py-20" style="background-color: var(--card-bg);">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 text-gradient" data-aos="fade-up">Our Core Values</h2>
+                <p class="text-xl" style="color: var(--text-light);" data-aos="fade-up" data-aos-delay="200">
+                    The fundamental principles that guide everything we do
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="feature-card p-8 text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6"
+                        style="background: var(--secondary-color);">
+                        <i class="fas fa-heart text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4" style="color: var(--text-color);">Compassion</h3>
+                    <p style="color: var(--text-light);">We care deeply about every individual we serve, treating each
+                        patient with empathy, kindness, and genuine concern for their well-being.</p>
+                </div>
+
+                <div class="feature-card p-8 text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6"
+                        style="background: var(--accent-color);">
+                        <i class="fas fa-award text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4" style="color: var(--text-color);">Excellence</h3>
+                    <p style="color: var(--text-light);">We strive for the highest standards in everything we do,
+                        continuously improving our services and maintaining professional excellence.</p>
+                </div>
+
+                <div class="feature-card p-8 text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6"
+                        style="background: var(--primary-color);">
+                        <i class="fas fa-handshake text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4" style="color: var(--text-color);">Integrity</h3>
+                    <p style="color: var(--text-light);">We maintain honesty, transparency, and ethical practices in all
+                        our interactions with clients, patients, and healthcare partners.</p>
+                </div>
+
+                <div class="feature-card p-8 text-center" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6"
+                        style="background: var(--secondary-dark);">
+                        <i class="fas fa-lightbulb text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4" style="color: var(--text-color);">Innovation</h3>
+                    <p style="color: var(--text-light);">We continuously seek innovative solutions and embrace new
+                        technologies to improve healthcare delivery and patient outcomes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Excellence -->
+    <section class="py-20 section-bg-pattern">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 text-gradient" data-aos="fade-up">Our Team Excellence</h2>
+                <p class="text-xl max-w-3xl mx-auto" style="color: var(--text-light);" data-aos="fade-up"
+                    data-aos-delay="200">
+                    Meet the dedicated professionals who make our healthcare services exceptional
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="feature-card p-8 text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6"
+                        style="background: var(--secondary-color);">
+                        <i class="fas fa-user-md text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4" style="color: var(--text-color);">Certified Nurses</h3>
+                    <p class="mb-4" style="color: var(--text-light);">Our team includes certified nurses with
+                        specialized training in various healthcare domains, ensuring expert care delivery.</p>
+                    <ul class="text-sm space-y-2" style="color: var(--text-light);">
+                        <li>• Advanced nursing certifications</li>
+                        <li>• Continuous professional development</li>
+                        <li>• Specialized care training</li>
+                        <li>• Emergency response certified</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card p-8 text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6"
+                        style="background: var(--accent-color);">
+                        <i class="fas fa-users text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4" style="color: var(--text-color);">Support Staff</h3>
+                    <p class="mb-4" style="color: var(--text-light);">Trained support staff who assist in various
+                        healthcare operations, ensuring smooth service delivery and patient comfort.</p>
+                    <ul class="text-sm space-y-2" style="color: var(--text-light);">
+                        <li>• Patient care assistants</li>
+                        <li>• Administrative coordinators</li>
+                        <li>• Equipment specialists</li>
+                        <li>• Quality assurance team</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card p-8 text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6"
+                        style="background: var(--primary-color);">
+                        <i class="fas fa-clipboard-check text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4" style="color: var(--text-color);">Quality Managers</h3>
+                    <p class="mb-4" style="color: var(--text-light);">Dedicated quality management professionals who
+                        ensure all services meet the highest standards of healthcare excellence.</p>
+                    <ul class="text-sm space-y-2" style="color: var(--text-light);">
+                        <li>• Service quality monitoring</li>
+                        <li>• Compliance management</li>
+                        <li>• Performance evaluation</li>
+                        <li>• Continuous improvement</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-20" style="background: linear-gradient(135deg, var(--primary-color), var(--primary-light));">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-6 text-white" data-aos="fade-up">Join Our Healthcare Family</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto text-white opacity-90" data-aos="fade-up" data-aos-delay="200">
+                Experience the difference that professional, compassionate healthcare services can make. Contact us
+                today to learn more about how we can support your healthcare needs.
+            </p>
+            <div class="space-x-4" data-aos="fade-up" data-aos-delay="400">
+                <a href="contact.html"
+                    class="bg-white hover:bg-gray-100 px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 inline-block transform hover:scale-105"
+                    style="color: var(--primary-color);">
+                    Contact Us Today
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+                <a href="services.html"
+                    class="border-2 border-white text-white hover:bg-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 inline-block hover:scale-105"
+                    style="color: var(--primary-color);">
+                    Our Services
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="col-span-2 md:col-span-1">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-10 h-10 bg-gradient-to-r rounded-lg flex items-center justify-center"
+                            style="background: linear-gradient(135deg, var(--secondary-color), var(--secondary-dark));">
+                            <i class="fas fa-heartbeat text-white text-xl"></i>
+                        </div>
+                        <span class="text-xl font-bold">Quality Healthcare</span>
+                    </div>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        Providing comprehensive healthcare solutions with professional excellence and compassionate care
+                        for over a decade.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/share/1CKmDS4uBg/"
+                            class="text-gray-300 hover:text-white transition-colors hover-scale">
+                            <i class="fab fa-facebook text-2xl"></i>
+                        </a>
+
+                        <a href="#" class="text-gray-300 hover:text-white transition-colors hover-scale">
+                            <i class="fab fa-linkedin text-2xl"></i>
+                        </a>
+                        <a href="https://www.instagram.com/qualityhcs_nashik?igsh=MXYxd2M0OHU5MWVzaw=="
+                            class="text-gray-300 hover:text-white transition-colors hover-scale">
+                            <i class="fab fa-instagram text-2xl"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold mb-6" style="color: var(--secondary-color);">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#about" class="text-gray-300 hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="#services" class="text-gray-300 hover:text-white transition-colors">Our
+                                Services</a></li>
+                        <li><a href="#process" class="text-gray-300 hover:text-white transition-colors">How We Work</a>
+                        </li>
+                        <li><a href="#contact" class="text-gray-300 hover:text-white transition-colors">Contact Us</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold mb-6" style="color: var(--secondary-color);">Our Services</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Nursing Care</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Hospital Support</a>
+                        </li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Home Care</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Patient Care</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Housekeeping</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold mb-6" style="color: var(--secondary-color);">Contact Information
+                    </h4>
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <i class="fas fa-map-marker-alt mt-1" style="color: var(--secondary-color);"></i>
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                Office No. 18, Shubharambh Apt, near Irrigation Colony, Ramkrishna Nagar, Makhmalabad,
+                                Nashik, Maharashtra 422003
+                            </p>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-phone" style="color: var(--secondary-color);"></i>
+                            <p class="text-gray-300">+91 86050 74717</p>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-envelope" style="color: var(--secondary-color);"></i>
+                            <p class="text-gray-300">info@qualityhealthcare.com</p>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-clock" style="color: var(--secondary-color);"></i>
+                            <p class="text-gray-300">24/7 Emergency Support</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+                <p class="text-gray-400">
+                    &copy; 2024 Quality Healthcare Services. All rights reserved. | Designed with ❤️ for better
+                    healthcare
+                </p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100,
+            easing: 'ease-out-cubic'
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', function () {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Initialize Swiper
+        const swiper = new Swiper('.testimonial-swiper', {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            breakpoints: {
+                768: {
+                    slidesPerView: 2,
+                },
+                1024: {
+                    slidesPerView: 3,
+                }
+            }
+        });
+
+        // Counter animation
+        function animateCounters() {
+            const counters = document.querySelectorAll('.counter');
+
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const increment = target / 100;
+                let current = 0;
+
+                const updateCounter = () => {
+                    if (current < target) {
+                        current += increment;
+                        counter.textContent = Math.ceil(current);
+                        setTimeout(updateCounter, 30);
+                    } else {
+                        counter.textContent = target;
+                    }
+                };
+
+                updateCounter();
+            });
+        }
+
+        // Trigger counter animation when visible
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    observer.unobserve(entry.target);
+                }
+            });
+        });
+
+        const counterSection = document.querySelector('.stats-counter');
+        if (counterSection) {
+            observer.observe(counterSection.parentElement);
+        }
+    </script>
+</body>
+
+</html>
